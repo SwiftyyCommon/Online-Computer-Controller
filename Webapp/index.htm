@@ -9,18 +9,31 @@
   <div class="topbar">
     <h1 id="000001">Framework Not Set Up</h1>
   </div>
-  <div class="loader">
-    <h1>Why am I here?</h1>
-    <p>This was a setup made for $COMPANY for its users to connect to the IP using a certain ID and Adress. If you are here by mistake, visit https://www.website.com. If you are here for purpose, you can go on wait for the server to connect to the owner, who is the host of this to the network of your computer. Once done, the host can see your your open tasks, making it easy for them to maintain and do other things..</p>
+
+  <div class="sdoty-container" id="loader-container">
+    <!-- loaders will be inserted dynamically -->
   </div>
+
   <div class="sbar">
     <div class="sdoty-container">
-    <div class="sdoty" id="000002"></div>
-    <p id="000003">offline</p>
-  
-</div>
-
+      <div class="sdoty" id="000002"></div>
+      <p id="000003">offline</p>
+      <p id="000004"> | DevNotFound</p>
+      <p id="000005"> | SerNumNotFound | </p>
+      <button onclick="clearCookies()">Clear Cookies</button>
+    </div>
   </div>
+
   <script src="./JS/Elements/pServer.js"></script>
 </body>
 </html>
+
+<script>
+function clearCookies() {
+  document.cookie.split(";").forEach(function(cookie) {
+    const name = cookie.split("=")[0].trim();
+    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  });
+  location.reload();
+}
+</script>
