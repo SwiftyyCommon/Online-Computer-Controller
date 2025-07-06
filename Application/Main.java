@@ -8,6 +8,8 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.io.*;
+import main.DeviceTypeChecker;
+import main.DeviceInfo;
 
 public class Main {
     public static void main(String[] args) {
@@ -99,15 +101,35 @@ public class Main {
                         } else {                     
                         	String encodedMsg = java.net.URLEncoder.encode(message, "UTF-8");
                         	String url = JOptionPane.showInputDialog("");
-                        	String targetUrl = url + "?msg=" + encodedMsg;
+
+                        	boolean deviceType = DeviceTypeChecker.isLaptop();
+                        	String dType = deviceType ? "LAPTOP" : "DESKTOP";
+
+                        	// 💥 ENCODE THESE AS WELL
+                        	int mbRam = DeviceInfo.getMemorySizeGB();
+                        	String deviceID = java.net.URLEncoder.encode(DeviceInfo.getSerialNumber(), "UTF-8");
+                        	String pName = java.net.URLEncoder.encode(DeviceInfo.getProcessorName(), "UTF-8");
+                        	String devManf = DeviceInfo.getManufacturer();
+
+                        	String targetUrl = url + "?msg=" + encodedMsg +
+                        	                   "&type=" + dType +
+                        	                   "&serNum=" + deviceID +
+                        	                   "&prcName=" + pName + 
+                        	                   "&ram=" + mbRam +
+                        	                   "&manf=" + devManf; 
+
                         	Desktop.getDesktop().browse(new URL(targetUrl).toURI());
+
                         	logArea.append("[LOG] PUI Public Dashboard Communication Success\n");
                         	frame.setTitle(titleName + " : " + encodedMsg);
                         }
                     } catch (Exception ex) {
-                        ex.printStackTrace();
-                        logArea.append("[ERROR] Failure " + ex.getStackTrace());
+                        ex.printStackTrace();  // Optional, still prints to console
+                        StringWriter sw = new StringWriter();
+                        ex.printStackTrace(new PrintWriter(sw));
+                        logArea.append("[ERROR] Failure\n" + sw.toString());
                     }
+
         		} else {
         			logArea.append("[ERROR] PUI Code is incorrect. Please reennter and check code.\n");
         		}
