@@ -1,5 +1,3 @@
-# .github/workflows/deploy.yml
-
 name: Deploy static content to Pages
 
 on:
@@ -29,11 +27,10 @@ jobs:
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
+      - name: Upload Webapp folder
         uses: actions/upload-pages-artifact@v3
         with:
-          # Only upload the Webapp directory
-          path: 'Webapp'
+          path: 'Webapp' # this is the only directory you want to deploy
 
       - name: Deploy to GitHub Pages
         id: deployment
