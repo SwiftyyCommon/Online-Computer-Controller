@@ -4,14 +4,18 @@ body {
 
 }
 .loader {
-     overflow: hidden;
-     margin: 1%;
-     width: auto;
-     height: 100px;
-     background-color: white;
-     border-radius: 15px;
-     box-shadow: 0px 0px 24px 4px #e3e3e3;
+  width: 500px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 0px 24px 4px #e3e3e3;
+  overflow: hidden;
+  margin: 1%;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .loader p {
      margin: 1%;
 }
@@ -27,6 +31,8 @@ body {
      color: black;
      box-shadow: 0px 0px 24px 4px #e3e3e3;
      padding: 5px;
+     position:fixed;
+     width: 96%;
 }
 .topbar h1 {
      margin: 1px;
@@ -37,34 +43,64 @@ body {
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 97%;
+  width: fit-content;             /* 👈 Only as wide as the content */
   background-color: white;
   color: black;
   text-align: center;
-  padding: 10px 20px;
-  border-radius: 999px; 
+  padding: 6px 16px;              /* 👈 Not too fat */
+  border-radius: 999px;
   box-shadow: 0px 0px 24px 4px #e3e3e3;
   z-index: 1000;
-  margin: 1px;
-}
-.sdoty-container {
   display: flex;
-  align-items: center;      /* optional: vertical alignment */
-  gap: 4px;                 /* optional: spacing between dots */
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
 }
 
-.sdoty {
-     width: 20px;
-     height: 15px;
-     border-radius: 10px;
-     background-color: red;
-     margin-left: 2px;
-     margin-right: 2px;
+.sdoty-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  max-width: 100%;  /* Optional cap */
 }
+
+
+
+.sdoty {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background-color: yellow;
+}
+
 
 .sbar p {
   margin: 0;
   padding: 0;
+}
+
+.right-box {
+  position: fixed;
+  top: 50px;             /* distance from top */
+  right: 0;              /* stick to right */
+  width: 200px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-left: 2px solid #ccc;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body button {
+  all: unset;
+  border-radius: 12px;
+  background-color: #f4f4f4;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 
