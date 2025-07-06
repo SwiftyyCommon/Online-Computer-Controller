@@ -1,2 +1,3 @@
-# OC Controller Version 1.0.0
-OC Controller is a program that can be used to monitor computer processes, tasks, usage, and other valuable infromation remotely from a based server. This is currently in development. Feel free to use the project for your own control projects, in case you want the user, your client to follow instructions, or just keep a vision at your home computers and PC's. 
+# Online Computer View
+Manage your computers, together from one device. Just use the application to install a java-app onto your device, and then run the application, enter a 12-Digit Code, and enter a URL, of the website:
+url(https://swiftyycommon.github.io/Online-Computer-Controller/)
